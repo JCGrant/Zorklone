@@ -1,5 +1,6 @@
-const ENTER_KEY_CODE = 13;
+(function () {
 
+const ENTER_KEY_CODE = 13;
 
 var terminal = document.getElementById('terminal');
 
@@ -12,3 +13,5 @@ input
     input.value = '';
   }
 });
+
+})();

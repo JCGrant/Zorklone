@@ -1,0 +1,23 @@
+{
+  "name": "zorklone",
+  "version": "1.0.0",
+  "description": "Zorklone",
+  "main": "",
+  "scripts": {
+    "start": "python server/run.py",
+    "watch": "./node_modules/.bin/webpack -w"
+  },
+  "keywords": [
+    "Game"
+  ],
+  "author": "JCGrant",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.13.2",
+    "webpack": "^1.13.1"
+  }
+}

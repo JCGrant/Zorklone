@@ -1,12 +1,10 @@
-(function () {
-
 const ENTER_KEY_CODE = 13;
 
-var story = document.createElement('div');
+let story = document.createElement('div');
 
-var terminal = document.createElement('pre');
+let terminal = document.createElement('pre');
 
-var userInput = document.createElement('input');
+let userInput = document.createElement('input');
 userInput
   .addEventListener('keyup', function(event) {
     event.preventDefault();
@@ -16,9 +14,7 @@ userInput
     }
   });
 
-var appElement = document.getElementById('app');
+let appElement = document.getElementById('app');
 appElement.appendChild(story);
 appElement.appendChild(terminal);
 appElement.appendChild(userInput);
-
-})();

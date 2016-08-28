@@ -4,7 +4,7 @@
   "description": "Zorklone",
   "main": "",
   "scripts": {
-    "start": "python server/run.py",
+    "start": "python run.py",
     "watch": "./node_modules/.bin/webpack -w"
   },
   "keywords": [

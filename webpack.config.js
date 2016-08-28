@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 var PATHS = {
   src:  path.resolve(__dirname, 'client'),
-  dist:  path.resolve(__dirname, 'server/app/static/'),
+  dist:  path.resolve(__dirname, 'server/static/'),
 };
 
 var config = {

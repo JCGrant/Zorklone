@@ -25,9 +25,19 @@ export default class App extends Component {
   handleInputChange = (event) => {
     event.preventDefault();
     if (event.key === 'Enter') {
+      let input = this.refs.userInput.value;
+      fetch('/input', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          input: input,
+        })
+      });
       this.setState({
-      terminalText: this.state.terminalText +
-                    this.refs.userInput.value + '\n'
+        terminalText: this.state.terminalText + input + '\n'
       });
       this.refs.userInput.value = '';
     }

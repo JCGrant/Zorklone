@@ -4,16 +4,13 @@ export default class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      sceneText: '',
-      terminalText: '',
-    }
-    this.handleUserInput();
+    this.restartApp();
   }
 
   render() {
     return (
       <div>
+        <button onClick={this.restartGame}>Restart</button>
         <div dangerouslySetInnerHTML={{ __html: this.state.sceneText }}></div>
         <pre>{this.state.terminalText}</pre>
         <input
@@ -25,9 +22,26 @@ export default class App extends Component {
     );
   }
 
+  restartApp = () => {
+    this.state = {
+      sceneText: '',
+      terminalText: '',
+    };
+    this.handleUserInput();
+  };
+
+  restartGame = (event) => {
+    fetch('/restart_game', {
+      method: 'POST',
+      credentials: 'same-origin',
+    })
+    .then(this.restartApp);
+  };
+
   handleUserInput = (userInput) => {
     fetch('/user_input', {
       method: 'POST',
+      credentials: 'same-origin',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

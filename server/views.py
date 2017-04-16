@@ -1,11 +1,7 @@
 from flask import render_template, request, jsonify
 
 from server import app
-
-scenes = {}
-scenes['start'] = """
-This is the start!
-"""
+from .game import game
 
 def response(response_type, body):
     return jsonify({
@@ -22,8 +18,8 @@ def home():
 @app.route('/user_input', methods=['POST'])
 def handle_input():
     user_input = request.get_json().get('userInput')
-    next_scene = scenes.get(user_input)
+    next_scene = game.handle_input(user_input)
     if next_scene:
-        return response('scene', next_scene)
+        return response('scene', next_scene.description)
     else:
         return response('not valid input', not_valid_input_message)

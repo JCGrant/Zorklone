@@ -8,7 +8,7 @@ export default class App extends Component {
       sceneText: '',
       terminalText: '',
     }
-    this.handleUserInput('start');
+    this.handleUserInput();
   }
 
   render() {

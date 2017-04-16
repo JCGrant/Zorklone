@@ -30,6 +30,8 @@ class Game:
 
 game = Game()
 game.add_scene('start', """
+# Start
+
 You enter the world!
 
 There is a path infront of you. A forest lies to the right and a city to the left.
@@ -38,10 +40,14 @@ There is a path infront of you. A forest lies to the right and a city to the lef
 ('city', 'city'),
 )
 game.add_scene('forest', """
+# Forest
+
 The forest is dark.
 """
 )
 game.add_scene('city', """
+# City
+
 The city is busy!.
 """
 )

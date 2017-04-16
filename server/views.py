@@ -1,4 +1,5 @@
 from flask import render_template, request, jsonify
+import markdown
 
 from server import app
 from .game import game
@@ -20,6 +21,6 @@ def handle_input():
     user_input = request.get_json().get('userInput')
     next_scene = game.handle_input(user_input)
     if next_scene:
-        return response('scene', next_scene.description)
+        return response('scene', markdown.markdown(next_scene.description))
     else:
         return response('not valid input', not_valid_input_message)

@@ -14,7 +14,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <div><em>{this.state.sceneText}</em></div>
+        <div dangerouslySetInnerHTML={{ __html: this.state.sceneText }}></div>
         <pre>{this.state.terminalText}</pre>
         <input
           type='text'

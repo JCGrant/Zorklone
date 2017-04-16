@@ -12,13 +12,16 @@ class Scene:
 class Game:
     def __init__(self):
         self.scenes = {}
-        self.current_scene_name = None
+        self.current_scene_name = 'start'
 
     def handle_input(self, user_input):
-        scene = self.scenes.get(self.current_scene_name, Scene('', ''))
-        next_scene_name = scene.paths.get(user_input, 'start')
-        self.current_scene_name = next_scene_name
-        return self.scenes.get(self.current_scene_name)
+        if not user_input:
+            return self.scenes.get(self.current_scene_name)
+        scene = self.scenes.get(self.current_scene_name)
+        next_scene_name = scene.paths.get(user_input)
+        if next_scene_name:
+            self.current_scene_name = next_scene_name
+            return self.scenes.get(self.current_scene_name)
 
     def add_scene(self, name, description, *paths):
         scene = Scene(name, description)

@@ -14,6 +14,7 @@ not_valid_input_message = "That is not a valid input right now."
 
 @app.route('/')
 def home():
+    game.current_scene_name = 'start'
     return render_template("home.html")
 
 @app.route('/user_input', methods=['POST'])
